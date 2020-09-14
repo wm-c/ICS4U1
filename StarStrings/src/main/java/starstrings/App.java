@@ -3,23 +3,33 @@
  */
 package starstrings;
 
+import java.util.Scanner;
+
+// Length 96
 public class App {
-    
+	public static int counter = 0;
+	public static boolean end = false;
     public static String message = "The unusually warm weather makes me think of summer. It is hard to stay focused on mundane work.";
     public static final int length = 20;
     public static int pointer = 0;
 
     public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Enter a string: ");
+		String Message = scanner.nextLine();
+
         for(int i = 0; i<length + 4; i++){
             System.out.print("*");
         }
 
         System.out.print("\n");
 
-        while(!(pointer >= message.length() - 1)){
+        while(!end){
 
-            String line = getPhrase();
-
+			String line = getPhrase();
+			
+			
             System.out.print("* ");
 
             System.out.print(line);
@@ -37,19 +47,33 @@ public class App {
     }
 
     public static String getPhrase(){
-        if(message.length() - pointer < length){
-            pointer = message.length();
-            return message.substring(pointer, message.length() - 1);
-        }
 
-        String tempMessage = message.substring(pointer, clamp(pointer + length, 0, message.length() - 1));
-        int end = tempMessage.lastIndexOf(" ");
+		String tempMessage;
 
-        tempMessage = tempMessage.substring(0, end);
+		if(message.length() - pointer <= length){
+			end = true;
+			tempMessage = message.substring(pointer, message.length());
+		}else{
 
-        pointer += end;
+			tempMessage = message.substring(pointer, clamp(pointer + length, 0, message.length() - 1));
+			int end = tempMessage.lastIndexOf(" ");
 
-        return tempMessage;
+			tempMessage = tempMessage.substring(0, end);
+
+			pointer += tempMessage.length();
+		}
+		
+		
+		if(tempMessage.startsWith(" ")){
+			tempMessage = tempMessage.stripLeading();
+		}
+
+		while(tempMessage.length() != length){
+			tempMessage += " ";
+		}
+
+		return tempMessage;
+		
     }
 
     public static int clamp(int clampedNumber, int lowerClamp, int upperClamp){
