@@ -65,7 +65,7 @@ public class App {
 		
 		
 		if(tempMessage.startsWith(" ")){
-			//tempMessage = tempMessage.stripLeading();
+			tempMessage = tempMessage.stripLeading();
 		}
 
 		while(tempMessage.length() != length){
