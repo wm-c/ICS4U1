@@ -17,7 +17,7 @@ public class App {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("Enter a string: ");
-		String Message = scanner.nextLine();
+		message = scanner.nextLine();
 
         for(int i = 0; i<length + 4; i++){
             System.out.print("*");
