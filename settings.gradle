@@ -2,3 +2,4 @@ rootProject.name = 'ICS4U1'
 
 include 'StarStrings'
 include 'LettersInCommon'
+include 'InsertionSort'
