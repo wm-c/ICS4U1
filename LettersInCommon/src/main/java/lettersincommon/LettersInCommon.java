@@ -6,7 +6,7 @@
  */
 package lettersincommon;
 
-public class App {
+public class LettersInCommon {
 
 	// List of words 
 	public static String[] wordlist = {"guyana", "lotion", "chilly", "doggie", "fledgy", "swanky", "crawly", "physic"};
