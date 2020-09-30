@@ -46,8 +46,6 @@ public class HashmapProject {
     }
 
 
-
-
     public boolean[] intToBoolean(int number) {
 
         boolean[] values = { (number & 0b1000) == 8, (number & 0b0100) == 4, (number & 0b0010) == 2,

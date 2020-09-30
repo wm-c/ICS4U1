@@ -6,6 +6,6 @@ build
 
 *.class
 
-bin/*
+bin/
 
 

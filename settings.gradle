@@ -3,3 +3,6 @@ rootProject.name = 'ICS4U1'
 include 'StarStrings'
 include 'LettersInCommon'
 include 'DataStructures'
+include 'InsertionSort'
+include 'ComputerGeneratedGraphics'
+
