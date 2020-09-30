@@ -5,4 +5,5 @@ include 'LettersInCommon'
 include 'DataStructures'
 include 'InsertionSort'
 include 'ComputerGeneratedGraphics'
+include 'Graphic'
 

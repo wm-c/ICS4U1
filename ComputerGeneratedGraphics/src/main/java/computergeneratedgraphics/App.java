@@ -34,6 +34,9 @@ public class App {
 		}
 
  
+		System.out.println(new Color(bufferedImage.getRGB(3, 3), true).getRed());
+
+		
         // Disposes of this graphics context and releases any system resources that it is using. 
         g2d.dispose();
  
