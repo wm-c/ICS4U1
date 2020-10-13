@@ -28,6 +28,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     compile group: 'io.netty', name: 'netty-all', version: '4.1.52.Final'
+
+	implementation project(":EasyGUI")
 }
 
 application {
