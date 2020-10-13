@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Graphic</name>
-	<comment>Project Graphic created by Buildship.</comment>
+	<name>EasyGUI</name>
+	<comment>Project EasyGUI created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1601475509315</id>
+			<id>1602565719860</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
