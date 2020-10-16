@@ -4,6 +4,11 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+/**
+ * Loading Animation
+ * William Meathrel
+ * 16/10/2020
+ */
 public class Animation {
 
 	public JFrame screen;
@@ -18,6 +23,7 @@ public class Animation {
 
 	}
 
+	// Makes JFrame and displays
 	public Animation() {
 		screen = new JFrame("Loading Icon");
 
