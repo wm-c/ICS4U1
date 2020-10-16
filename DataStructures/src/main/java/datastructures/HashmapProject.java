@@ -14,7 +14,8 @@ public class HashmapProject {
 
     public static void main(String[] args) {
 		// Initazlies the Hashmap Project object
-        new HashmapProject();
+		new HashmapProject();
+		
 
     }
 

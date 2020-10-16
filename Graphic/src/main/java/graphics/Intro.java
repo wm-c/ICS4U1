@@ -1,7 +1,10 @@
 package graphics;
 
 import java.awt.*;  
-import javax.swing.*;  
+import javax.swing.*;
+
+
+
 
 public class Intro {
 
@@ -26,6 +29,7 @@ public class Intro {
 		window.add(panel, BorderLayout.EAST);
 
 		window.setVisible(true);
+		
 	}
 
 	class myButton extends JButton{

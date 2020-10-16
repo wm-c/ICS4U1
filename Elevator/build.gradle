@@ -3,7 +3,7 @@
  *
  * This generated file contains a sample Java project to get you started.
  * For more details take a look at the Java Quickstart chapter in the Gradle
- * User Manual available at https://docs.gradle.org/6.1.1/userguide/tutorial_java_projects.html
+ * User Manual available at https://docs.gradle.org/6.3/userguide/tutorial_java_projects.html
  */
 
 plugins {
@@ -22,17 +22,13 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:28.1-jre'
+    implementation 'com.google.guava:guava:28.2-jre'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-
-    compile group: 'io.netty', name: 'netty-all', version: '4.1.52.Final'
-
-	implementation project(":EasyGUI")
 }
 
 application {
     // Define the main class for the application.
-    mainClassName = 'datastructures.Master'
+    mainClassName = 'elevator.ElevTest'
 }
