@@ -16,9 +16,9 @@ public class FacadeDemo {
         car = new Car();
         bike = new Bike();
 
-        bike.move();
-        car.move();
-        plane.move();
+        // bike.move();
+        // car.move();
+        // plane.move();
 
         for(Vehicle vehicle : new Vehicle[] {bike, car, plane}){
             vehicle.move();
