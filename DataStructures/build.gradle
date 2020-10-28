@@ -29,7 +29,7 @@ dependencies {
 
     compile group: 'io.netty', name: 'netty-all', version: '4.1.52.Final'
 
-	implementation project(":EasyGUI")
+	compile project(":EasyGUI")
 }
 
 application {
