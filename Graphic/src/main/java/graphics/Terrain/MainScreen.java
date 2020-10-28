@@ -4,6 +4,10 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+/**
+ * William Meathrel
+ * A Program for generating terrain with 2d arrays
+ */
 public class MainScreen {
 	
 	static Terrain terrain;
