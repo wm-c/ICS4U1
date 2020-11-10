@@ -1,19 +1,10 @@
 package graphics.RenderHell.interfaces;
 
+import java.awt.*;
+
 public interface Drawable {
 	
-
-	public int getX();
-
-	public int getY();
-
-	public int getWidth();
-
-	public int getHeight();
-
-	public void draw();
-
-	
+	public void draw(Graphics2D g2d);
 
 	
 }

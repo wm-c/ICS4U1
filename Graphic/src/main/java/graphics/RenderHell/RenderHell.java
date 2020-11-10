@@ -3,21 +3,25 @@ package graphics.RenderHell;
 import javax.swing.Timer;
 
 import graphics.RenderHell.bullet.BulletMaster;
+import graphics.RenderHell.collision.CollisionController;
+import graphics.RenderHell.input.Movement;
+import graphics.RenderHell.objects.MobMaster;
 import graphics.RenderHell.objects.Player;
-import graphics.RenderHell.utils.Vector;
+import graphics.RenderHell.objects.terrain.TerrainMaster;
 
-import java.awt.*;
+
+
 import javax.swing.*;
 import java.awt.event.*;
 
 public class RenderHell {
 	
 
-	Timer draw = new Timer(1, new DrawClass());
+	Timer draw = new Timer(5, new DrawClass());
 	Timer logic = new Timer(1, new LogicClass());
+	static Movement movement = new Movement();
 
-
-	GameCanvas canvas = new GameCanvas();
+	GameCanvas canvas = GameCanvas.getInstance();
 	
 
 	public static void main(String[] args) {
@@ -36,6 +40,10 @@ public class RenderHell {
 		window.add(canvas);
 		window.pack();
 		window.setVisible(true);
+
+		
+		
+		
 		draw.start();
 		logic.start();
 
@@ -45,9 +53,6 @@ public class RenderHell {
 	public class DrawClass implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			BulletMaster.getInstance().draw();
-
-
 			canvas.repaint();
 		}
 	}
@@ -55,9 +60,13 @@ public class RenderHell {
 	public class LogicClass implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			Player.getPlayer().update();
-			BulletMaster.getInstance().update();
-
+			Player.getPlayer().update(null);
+			TerrainMaster.getInstance().update(Player.getPlayer().getMovementVector());
+			BulletMaster.getInstance().update(Player.getPlayer().getMovementVector());
+			MobMaster.getInstance().update();
+			CollisionController.getInstance().checkCollison();
+			
+			
 		}
 	}
 

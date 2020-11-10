@@ -45,7 +45,7 @@ public class Rotation {
 	 * @param angle angle in degrees
 	 * @return a new rotation
 	 */
-	public Rotation degRotation(double angle){
+	public static Rotation degRotation(double angle){
 		return new Rotation(Math.toRadians(angle));
 	}
 

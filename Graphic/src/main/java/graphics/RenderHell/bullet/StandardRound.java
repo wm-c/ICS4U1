@@ -1,45 +1,39 @@
 package graphics.RenderHell.bullet;
 
 import graphics.RenderHell.utils.Vector;
+import graphics.RenderHell.Constants;
+import graphics.RenderHell.Constants.Units;
+import java.awt.*;
+
 
 public class StandardRound extends Bullet {
 
-	public StandardRound(Vector vector) {
-		super(vector);
+	private Units owner;
+
+	public StandardRound(Vector vector, int initalX, int initalY, Units ownerUnit) {
+		super(vector, initalX, initalY);
+		owner = ownerUnit;
 	}
 
 	@Override
-	public int getX() {
-		return super.x;
-	}
-
-	@Override
-	public int getY() {
-		return super.y;
-	}
-
-	@Override
-	public int getWidth() {
+	public void draw(Graphics2D g2d) {
+		g2d.drawRect(getX(), getY(), Constants.Bullets.bulletWidth, Constants.Bullets.bulletHeight);
 		
-		return 5;
 	}
 
-	@Override
-	public int getHeight() {
-		
-		return 5;
-	}
 
-	@Override
-	public void draw() {
-		
+	
 
-	}
 
 	@Override
 	public void onCollision() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Units getSource() {
+		return owner;
 	}
 	
 }

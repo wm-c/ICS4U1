@@ -4,6 +4,8 @@ public class Vector {
 	
 	private Rotation direction;
 	private double magnitude;
+	private double xComponent;
+	private double yComponent;
 
 
 	public Vector(double xComponent, double yComponent){
@@ -14,6 +16,8 @@ public class Vector {
 	public Vector(Rotation direction, double magnitude){
 		this.direction = direction;
 		this.magnitude = magnitude;
+		yComponent = magnitude * Math.sin(direction.getRadians());
+		xComponent = magnitude * Math.cos(direction.getRadians());
 	}
 
 	
@@ -29,22 +33,24 @@ public class Vector {
 
 
 	public double getXComponent(){
-		return magnitude * Math.cos(direction.getRadians());
+		return xComponent;
 	}
 
 	public double getYComponent(){
-		return magnitude * Math.sin(direction.getRadians());
+		return yComponent;
 	}
 
 
 	public void setXComponent(double xComponent){
 		direction = new Rotation(Math.atan2(getYComponent(), xComponent));
 		magnitude = Math.hypot(xComponent, getYComponent());
+		this.xComponent = xComponent;
 	}
 
 	public void setYComponent(double yComponent){
 		direction = new Rotation(Math.atan2(yComponent, getXComponent()));
 		magnitude = Math.hypot(getXComponent(), yComponent);
+		this.yComponent = yComponent;
 	}
 
 

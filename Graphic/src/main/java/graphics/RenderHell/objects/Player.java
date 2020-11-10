@@ -1,18 +1,24 @@
 package graphics.RenderHell.objects;
 
 import graphics.RenderHell.Constants;
+import graphics.RenderHell.Constants.Units;
+import graphics.RenderHell.interfaces.Collidable;
 import graphics.RenderHell.interfaces.Drawable;
 import graphics.RenderHell.interfaces.Logicable;
 import graphics.RenderHell.utils.Vector;
+import java.awt.*;
 
-public class Player implements Drawable, Logicable{
+
+
+public class Player implements Drawable, Logicable, Collidable{
 	public static Player mInstance = null;
 
 	private Vector movementVector;
 
+	public int health = 1000;
 
 	// Drawable Data
-	private double x;
+	private int x;
 	private int y;
 	private int width;
 	private int height;
@@ -60,24 +66,27 @@ public class Player implements Drawable, Logicable{
 	}
 
 	@Override
-	public void update() {
-		x += movementVector.getXComponent();
-		y += movementVector.getYComponent();
+	public void update(Vector playerVector) {
+		// x += movementVector.getXComponent();
+		// y += movementVector.getYComponent();
 	}
 
-	
+
 
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
+	public void draw(Graphics2D g2d) {
+		g2d.drawRect(x, y, width, height);
 
+		// heath box
+		g2d.setColor(Color.red);
+		g2d.fillRect(10, 10, width * health / 100, 20);
+		
+		g2d.setColor(Color.black);
 	}
 
 	@Override
 	public int getX() {
-		
-		return (int)(x);
-		
+		return x;
 	}
 
 	@Override
@@ -95,30 +104,21 @@ public class Player implements Drawable, Logicable{
 		return height;
 	}
 
+	@Override
+	public void hit() {
+		health--;
+	}
 
 
+
+
+
+
+	public Units getUnit() {
+		return Units.PLAYER;
+	}
 
 	
-
-
-
-
-
-
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
