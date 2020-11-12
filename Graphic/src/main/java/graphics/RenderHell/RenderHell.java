@@ -16,12 +16,14 @@ import java.awt.event.*;
 
 public class RenderHell {
 	
-
+	// Creates different timer for logic and drawing.
 	Timer draw = new Timer(5, new DrawClass());
 	Timer logic = new Timer(1, new LogicClass());
-	static Movement movement = new Movement();
 
-	GameCanvas canvas = GameCanvas.getInstance();
+	// tell if the game should still run
+	public static boolean alive = true;
+
+	
 	
 
 	public static void main(String[] args) {
@@ -31,44 +33,62 @@ public class RenderHell {
 	}
 
 	public RenderHell(){
+
+		// General start up stuff
 		JFrame window = new JFrame();
 		window.setTitle("Render Hell");
 	
 
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		window.add(canvas);
+		// Adds tehe game canvas to the window
+		window.add(GameCanvas.getInstance());
 		window.pack();
 		window.setVisible(true);
 
 		
 		
-		
+		// Starts both timers
 		draw.start();
 		logic.start();
 
 
 	}
 
+	// creates the action listener that repaints the screen
 	public class DrawClass implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			canvas.repaint();
+			// Calls the repaint from the canvas
+			GameCanvas.getInstance().repaint();
 		}
 	}
 
+	// Logic action listener
 	public class LogicClass implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			Player.getPlayer().update(null);
-			TerrainMaster.getInstance().update(Player.getPlayer().getMovementVector());
-			BulletMaster.getInstance().update(Player.getPlayer().getMovementVector());
-			MobMaster.getInstance().update();
-			CollisionController.getInstance().checkCollison();
-			
+			// Update if the player is allive
+			if(alive){
+				
+				// update the terain with the new player vector
+				TerrainMaster.getInstance().update(Player.getPlayer().getMovementVector());
+
+				// Update bullet master with player vector
+				BulletMaster.getInstance().update(Player.getPlayer().getMovementVector());
+
+				// Updates mobs
+				MobMaster.getInstance().update();
+
+				// Check collison
+				CollisionController.getInstance().checkCollison();
+			}
 			
 		}
 	}
+
+
+	
 
 
 

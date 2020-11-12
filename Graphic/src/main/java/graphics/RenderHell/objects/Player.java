@@ -1,6 +1,7 @@
 package graphics.RenderHell.objects;
 
 import graphics.RenderHell.Constants;
+import graphics.RenderHell.RenderHell;
 import graphics.RenderHell.Constants.Units;
 import graphics.RenderHell.interfaces.Collidable;
 import graphics.RenderHell.interfaces.Drawable;
@@ -9,23 +10,26 @@ import graphics.RenderHell.utils.Vector;
 import java.awt.*;
 
 
-
-public class Player implements Drawable, Logicable, Collidable{
+// Class for player control
+public class Player implements Drawable, Collidable{
+	// Stores player instance
 	public static Player mInstance = null;
 
+	// Creates a movementVector for player
 	private Vector movementVector;
 
-	public int health = 1000;
+	// Sets the heath
+	public int health = 50;
 
 	// Drawable Data
 	private int x;
 	private int y;
 	private int width;
 	private int height;
+	public int score = 0;
 
 
-
-
+	// Creates a player based of a config
 	private Player(){
 		
 		this.x = Constants.Player.initialXPose;
@@ -65,55 +69,57 @@ public class Player implements Drawable, Logicable, Collidable{
 		return movementVector;
 	}
 
-	@Override
-	public void update(Vector playerVector) {
-		// x += movementVector.getXComponent();
-		// y += movementVector.getYComponent();
-	}
-
-
+	
 
 	@Override
 	public void draw(Graphics2D g2d) {
+
+		// Draws player square
 		g2d.drawRect(x, y, width, height);
 
 		// heath box
 		g2d.setColor(Color.red);
-		g2d.fillRect(10, 10, width * health / 100, 20);
+		g2d.fillRect(10, 10, 200 * health / 100, 20);
 		
 		g2d.setColor(Color.black);
 	}
 
+	// gets x
 	@Override
 	public int getX() {
 		return x;
 	}
 
+	// gets y
 	@Override
 	public int getY() {
 		return y;
 	}
 
+	// gets width
 	@Override
 	public int getWidth() {
 		return width;
 	}
 
+	// gets height
 	@Override
 	public int getHeight() {
 		return height;
 	}
 
+	// does if player is hit
 	@Override
 	public void hit() {
+		// lower players health and checks if the player has died
 		health--;
+		if(health <= 0){
+			RenderHell.alive = false;
+		}
 	}
 
 
-
-
-
-
+	// returns the type of unit the player is
 	public Units getUnit() {
 		return Units.PLAYER;
 	}

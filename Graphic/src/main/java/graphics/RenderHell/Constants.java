@@ -4,11 +4,13 @@ import graphics.RenderHell.utils.Vector;
 
 public class Constants {
 
-
+	// Constants for display
 	public static class Display{
 
+		// Screen width
 		public static final int screenWidth = 500;
 		
+		// Screen height
 		public static final int screenHeight = 500;
 
 
@@ -16,20 +18,25 @@ public class Constants {
 
 	}
 
-
+	// Constants for player
 	public static class Player{
 
-		public static final double maxSpeed = .15;
-		public static final double minSpeed = -.15;
+		// Max player speeds
+		public static final double maxSpeed = .05;
+		public static final double minSpeed = -.05;
 		
+		// Inital player pose
 		public static final int initialXPose = Display.screenWidth / 2;
 		public static final int initialYPose = Display.screenHeight / 2;
 
+		// Player width and height
 		public static final int playerWidth = 10;
 		public static final int playerHeight = 10;
 
+		// inital vector
 		public static final Vector initialVector = new Vector(0, 0);
 
+		// Player speed to set
 		public static final int speed = 1;
 		
 
@@ -37,17 +44,18 @@ public class Constants {
 	}
 
 
+	// bullet config
 	public static class Bullets{
 
-		public static final int maxBulletRange = 900;
-
+		
+		// bullet width and height
 		public static final int bulletWidth = 4;
 		public static final int bulletHeight = 4;
 
 
 	}
 
-
+	// unit types
 	public enum Units{
 		PLAYER,
 		GOBLIN

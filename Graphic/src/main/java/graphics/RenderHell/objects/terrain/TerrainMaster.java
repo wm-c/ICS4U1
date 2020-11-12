@@ -10,10 +10,13 @@ import graphics.RenderHell.interfaces.Logicable;
 import graphics.RenderHell.utils.Vector;
 
 public class TerrainMaster implements Logicable, Drawable {
+	// creates instances
 	private static TerrainMaster mInstance = null;
 
+	// arraylist for walls
 	private static ArrayList<Wall> terrain;
 
+	// gets instance of terrain master
 	public static TerrainMaster getInstance() {
 		if (mInstance == null) {
 			mInstance = new TerrainMaster();
@@ -22,6 +25,7 @@ public class TerrainMaster implements Logicable, Drawable {
 		return mInstance;
 	}
 
+	// Creates arraylist adds wall base walls
 	private TerrainMaster() {
 		terrain = new ArrayList<>();
 
@@ -33,11 +37,13 @@ public class TerrainMaster implements Logicable, Drawable {
 		addTerrain(new Wall(1450, -50, 50, 1200));
 	}
 
+	// adds terrain and registers it with the collision controller
 	private void addTerrain(Wall newTerrain) {
 		terrain.add(newTerrain);
 		CollisionController.getInstance().addHittable(newTerrain);
 	}
 
+	// updates all walls
 	@Override
 	public void update(Vector playerVector) {
 		for (Wall wall : terrain) {
@@ -46,6 +52,7 @@ public class TerrainMaster implements Logicable, Drawable {
 
 	}
 
+	// draws all walls
 	@Override
 	public void draw(Graphics2D g2d) {
 		
@@ -56,6 +63,7 @@ public class TerrainMaster implements Logicable, Drawable {
 
 	}
 	
+	// returns a list of terrain
 	public ArrayList<Wall> getTerrain(){
 		return terrain;
 	}
